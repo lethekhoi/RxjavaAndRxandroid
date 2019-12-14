@@ -21,15 +21,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Observable<String> observableNames = Observable.just("Teo", "Ti", "Tun");
-        List<String> arrayNames = new ArrayList<>();
-        arrayNames.add("Nguyen Van A");
-        arrayNames.add("Nguyen Van B");
-        arrayNames.add("Nguyen Van C");
-        Log.d("BBB", arrayNames.size() + "");
-        Iterator<String> iterator = arrayNames.iterator();
-        while (iterator.hasNext()) {
-            Log.d("BBB", iterator.next());
-        }
+//        List<String> arrayNames = new ArrayList<>();
+//        arrayNames.add("Nguyen Van A");
+//        arrayNames.add("Nguyen Van B");
+//        arrayNames.add("Nguyen Van C");
+//        Log.d("BBB", arrayNames.size() + "");
+//        Iterator<String> iterator = arrayNames.iterator();
+//        while (iterator.hasNext()) {
+//            Log.d("BBB", iterator.next());
+//        }
         observableNames.subscribe(new Observer<String>() {
             @Override
             public void onSubscribe(Disposable d) {
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onNext(String s) {
-
+                Log.d("BBB", s);
             }
 
             @Override
@@ -48,9 +48,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onComplete() {
-
+                disposable.dispose();
             }
         });
+
 
     }
 }
